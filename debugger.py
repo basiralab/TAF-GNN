@@ -11,7 +11,7 @@ class FEDDebugger():
         
         if args.path == "":
             self.unique_run_id = str(uuid4())
-            self.unique_path = os.path.join(config.ACC_RESULTS_DIR, "created", self.unique_run_id)
+            self.unique_path = os.path.join(config.ACC_RESULTS_DIR, self.unique_run_id)
             os.mkdir(self.unique_path)
             args.path = self.unique_path
 

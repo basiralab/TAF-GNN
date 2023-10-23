@@ -58,7 +58,7 @@ def get_args():
     parser = argparse.ArgumentParser(description='Args for graph prediction')
 
     # changeable parameters
-    parser.add_argument('-mode',            type=str, default="4D-FED-GNN",         help='training technique')
+    parser.add_argument('-mode',            type=str, default="4D-FED-GNN",     help='training technique')
     parser.add_argument('-num_epochs',      type=int, default=25,               help='number of epochs')
     parser.add_argument('-num_folds',       type=int, default=3,                help='cv number')
     parser.add_argument('-eval_mode',       type=str, default="intra-domain",   help="inter-domain or intra-domain evaluation")
@@ -477,13 +477,7 @@ if __name__ == "__main__":
     if args.simulated_data == 0:
         all_views = dataset_builder(config.REAL_DATA_PATH) # [67, 2, 35, 35, 4]
     elif args.simulated_data == 1:
-        # all_views = torch.from_numpy(np.load(os.path.join(config.SIMULATED_DATA_PATH, "multivariate_simulation_data_4_views_4_timepoints_200_sample.npy"))) # [200, 4, 35, 35, 4]
-        # all_views = all_views.to(dtype=torch.float32)
-        
-        # all_views = diverse_simulated_data(all_views)
-        # np.save(os.path.join(config.SIMULATED_DATA_PATH, "diversed_simulated_data.npy"), np.array(all_views))
-
-        all_views = torch.from_numpy(np.load(os.path.join(config.SIMULATED_DATA_PATH, "lh_augmented_data_from_ind_real_data.npy"))) # [200, 4, 35, 35, 4]
+        all_views = torch.from_numpy(np.load(os.path.join(config.SIMULATED_DATA_PATH, "example_sim_data.npy"))) # [200, 4, 35, 35, 4]
         all_views = all_views.to(dtype=torch.float32)
 
     num_of_hospitals = all_views.shape[4] # number of views equals to number of hospitals

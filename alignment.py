@@ -84,8 +84,6 @@ def single_aligner_alignment(args, dataset, test_data, fold):
 
             train_single_aligner(args, single_aligner, optimizer, train_cur_data, target, i, t, fold, debugger)
 
-
-
             # use saved models and aligning training and testing data
             print(f"Aligning view {i+1}, timepoint {t+1}")
 
